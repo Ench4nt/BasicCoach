@@ -17,10 +17,8 @@ export async function POST(req: NextRequest) {
   const signature = req.headers.get("paddle-signature") ?? "";
   const rawBody = await req.text();
 
-  let event;
-  try {
-    event = await paddle.webhooks.unmarshal(rawBody, webhookSecret, signature);
-  } catch {
+  const event = await paddle.webhooks.unmarshal(rawBody, webhookSecret, signature).catch(() => null);
+  if (!event) {
     return NextResponse.json({ error: "Invalid webhook signature" }, { status: 400 });
   }
 
