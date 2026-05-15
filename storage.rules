@@ -1,0 +1,17 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /videos/{allPaths=**} {
+      // No direct client access — all reads go through signed URLs generated server-side
+      allow read: if false;
+      // Uploads only via Firebase Admin SDK (you or your admin tooling)
+      allow write: if false;
+    }
+
+    match /thumbnails/{allPaths=**} {
+      // Thumbnails are public
+      allow read: if true;
+      allow write: if false;
+    }
+  }
+}

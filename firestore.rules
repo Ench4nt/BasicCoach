@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Courses and videos are publicly readable
+    match /courses/{courseId} {
+      allow read: if true;
+      allow write: if false; // managed via Admin SDK / seed script only
+    }
+
+    match /videos/{videoId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Purchase records are only readable by the owning user
+    match /users/{uid}/purchases/{courseId} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow write: if false; // written only by server via Admin SDK (webhook)
+    }
+  }
+}
