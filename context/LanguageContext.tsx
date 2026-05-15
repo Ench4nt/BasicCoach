@@ -44,7 +44,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       value={{
         lang,
         setLang,
-        t: translations[lang],
+        t: translations[lang] as T,
         dir: lang === "he" ? "rtl" : "ltr",
       }}
     >
