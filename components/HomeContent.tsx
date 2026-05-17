@@ -115,73 +115,6 @@ export default function HomeContent() {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-zinc-950 to-transparent pointer-events-none" />
       </section>
 
-      {/* ── Features ─────────────────────────────────────────── */}
-      <section className="border-t border-zinc-800/60 py-8 md:py-24" aria-label="Platform features">
-        <div className="max-w-6xl mx-auto px-6">
-
-          {/* Header row */}
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-6 md:mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
-              {t.features.heading}
-            </h2>
-
-            {/* Level progression */}
-            <div className="flex items-center gap-2 flex-shrink-0 flex-wrap">
-              {[
-                { label: "Beginner",     color: "text-emerald-400 border-emerald-500/30 bg-emerald-500/8" },
-                { label: "Intermediate", color: "text-amber-400 border-amber-500/30 bg-amber-500/8" },
-                { label: "Advanced",     color: "text-red-400 border-red-500/30 bg-red-500/8" },
-              ].map((level, i) => (
-                <div key={level.label} className="flex items-center gap-2">
-                  {i > 0 && <div className="w-4 h-px bg-zinc-700" aria-hidden />}
-                  <span className={`text-xs font-semibold px-3 py-1.5 rounded-full border ${level.color}`}>
-                    {level.label}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Feature rows */}
-          <div className="divide-y divide-zinc-800/60">
-            {features.map((f, i) => {
-              const Icon = f.icon;
-              return (
-                <div
-                  key={f.title}
-                  className="group flex flex-col sm:flex-row sm:items-center gap-6 py-8 hover:bg-zinc-900/40 px-4 -mx-4 rounded-2xl transition-colors duration-200"
-                >
-                  {/* Number */}
-                  <span className="text-5xl font-black text-red-500/20 group-hover:text-red-500/40 transition-colors duration-200 leading-none select-none w-16 flex-shrink-0">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-
-                  {/* Icon */}
-                  <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 group-hover:border-red-500/30 group-hover:bg-red-500/5 flex items-center justify-center flex-shrink-0 transition-colors duration-200" aria-hidden>
-                    <Icon className="w-5 h-5 text-red-400" strokeWidth={1.75} />
-                  </div>
-
-                  {/* Text */}
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white mb-1">{f.title}</h3>
-                    <p className="text-zinc-400 text-sm leading-relaxed max-w-lg">{f.body}</p>
-                  </div>
-
-                  {/* Arrow */}
-                  <svg
-                    className="w-5 h-5 text-zinc-700 group-hover:text-red-500 transition-colors duration-200 flex-shrink-0 hidden sm:block"
-                    fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
-                    aria-hidden
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* ── Meet Your Coach ──────────────────────────────────── */}
       <section className="py-6 md:py-20 border-t border-zinc-800/60" aria-label="Meet your coach">
         <div className="max-w-6xl mx-auto px-6">
@@ -238,10 +171,78 @@ export default function HomeContent() {
         </div>
       </section>
 
+      {/* ── Features ─────────────────────────────────────────── */}
+      <section className="border-t border-zinc-800/60 py-8 md:py-24" aria-label="Platform features">
+        <div className="max-w-6xl mx-auto px-6">
+
+          {/* Header row */}
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-6 md:mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
+              {t.features.heading}
+            </h2>
+
+            {/* Level progression */}
+            <div className="flex items-center gap-2 flex-shrink-0 flex-wrap">
+              {[
+                { label: "Beginner",     color: "text-emerald-400 border-emerald-500/30 bg-emerald-500/8" },
+                { label: "Intermediate", color: "text-amber-400 border-amber-500/30 bg-amber-500/8" },
+                { label: "Advanced",     color: "text-red-400 border-red-500/30 bg-red-500/8" },
+              ].map((level, i) => (
+                <div key={level.label} className="flex items-center gap-2">
+                  {i > 0 && <div className="w-4 h-px bg-zinc-700" aria-hidden />}
+                  <span className={`text-xs font-semibold px-3 py-1.5 rounded-full border ${level.color}`}>
+                    {level.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Feature rows */}
+          <div className="divide-y divide-zinc-800/60">
+            {features.map((f, i) => {
+              const Icon = f.icon;
+              return (
+                <div
+                  key={f.title}
+                  className="group flex flex-col sm:flex-row sm:items-center gap-6 py-8 hover:bg-zinc-900/40 px-4 -mx-4 rounded-2xl transition-colors duration-200"
+                >
+                  {/* Number + Icon: row on mobile, separate flex items on desktop */}
+                  <div className="flex items-center gap-6 sm:contents">
+                    <span className="text-5xl font-black text-red-500/20 group-hover:text-red-500/40 transition-colors duration-200 leading-none select-none w-16 flex-shrink-0">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+
+                    <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 group-hover:border-red-500/30 group-hover:bg-red-500/5 flex items-center justify-center flex-shrink-0 transition-colors duration-200" aria-hidden>
+                      <Icon className="w-5 h-5 text-red-400" strokeWidth={1.75} />
+                    </div>
+                  </div>
+
+                  {/* Text */}
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-white mb-1">{f.title}</h3>
+                    <p className="text-zinc-400 text-sm leading-relaxed max-w-lg">{f.body}</p>
+                  </div>
+
+                  {/* Arrow */}
+                  <svg
+                    className="w-5 h-5 text-zinc-700 group-hover:text-red-500 transition-colors duration-200 flex-shrink-0 hidden sm:block"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                    aria-hidden
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA Banner ───────────────────────────────────────── */}
       <section className="py-6 md:py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="relative rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800" style={{ minHeight: "420px" }}>
+          <div className="relative rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800">
 
             {/* Red glow */}
             <div
@@ -250,36 +251,40 @@ export default function HomeContent() {
               aria-hidden
             />
 
-            {/* Title — top center */}
-            <div className="relative z-10 pt-14 text-center px-6">
-              <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
-                {t.cta.heading}
+            {/* Title — sits above the boxer, not overlapping */}
+            <div className="relative z-10 pt-12 text-center px-6">
+              <h2 className="text-4xl md:text-5xl font-black leading-[0.95] tracking-tight text-white">
+                {t.cta.headingLine1}<br />
+                <span className="text-red-500">{t.cta.headingLine2}</span>
               </h2>
             </div>
 
-            {/* Boxer image — centered */}
-            <div className="absolute inset-0 flex items-end justify-center pointer-events-none select-none" aria-hidden>
-              <Image
-                src="/cta-boxer.png"
-                alt=""
-                width={520}
-                height={620}
-                className="object-contain object-bottom h-[85%] w-auto opacity-90 brightness-110"
-              />
-              {/* Side fades */}
-              <div className="absolute inset-0 bg-gradient-to-r from-zinc-900/80 via-transparent to-zinc-900/80" />
-              {/* Bottom fade into button area */}
-              <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-zinc-900 to-transparent" />
-            </div>
+            {/* Boxer image + button area */}
+            <div className="relative h-[540px]">
+              {/* Boxer image */}
+              <div className="absolute inset-0 flex items-end justify-center pointer-events-none select-none" aria-hidden>
+                <Image
+                  src="/cta-boxer.png"
+                  alt=""
+                  width={520}
+                  height={620}
+                  className="object-contain object-bottom h-full w-auto opacity-90 brightness-110"
+                />
+                {/* Side fades */}
+                <div className="absolute inset-0 bg-gradient-to-r from-zinc-900/80 via-transparent to-zinc-900/80" />
+                {/* Bottom fade into button */}
+                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-zinc-900 to-transparent" />
+              </div>
 
-            {/* Button — bottom center, on top of image lower half */}
-            <div className="absolute bottom-10 sm:bottom-16 md:bottom-32 left-0 right-0 flex justify-center z-10">
-              <Link
-                href="/courses"
-                className="inline-flex items-center justify-center h-13 px-10 py-3.5 bg-red-600 hover:bg-red-700 active:bg-red-800 text-white font-bold text-base rounded-xl transition-colors duration-150 shadow-lg shadow-red-900/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500"
-              >
-                {t.cta.button}
-              </Link>
+              {/* Button */}
+              <div className="absolute bottom-10 left-0 right-0 flex justify-center z-10">
+                <Link
+                  href="/courses"
+                  className="inline-flex items-center justify-center h-13 px-10 py-3.5 bg-red-600 hover:bg-red-700 active:bg-red-800 text-white font-bold text-base rounded-xl transition-colors duration-150 shadow-lg shadow-red-900/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500"
+                >
+                  {t.cta.button}
+                </Link>
+              </div>
             </div>
 
           </div>

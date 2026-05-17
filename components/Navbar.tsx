@@ -85,7 +85,9 @@ export default function Navbar() {
 
         {/* Right side */}
         <nav aria-label="Primary navigation" className="flex items-center gap-3">
-          <LanguageSwitcher />
+          <div className="hidden sm:flex">
+            <LanguageSwitcher />
+          </div>
 
           {!loading && (
             <div className="flex items-center gap-2">

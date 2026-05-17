@@ -42,6 +42,8 @@ export const translations = {
     },
     cta: {
       heading: "Ready to step in the ring?",
+      headingLine1: "Ready to step",
+      headingLine2: "in the ring?",
       body: "Start your first course today. No gym required.",
       button: "See All Courses",
     },
@@ -97,6 +99,8 @@ export const translations = {
     },
     cta: {
       heading: "מוכן לעלות לזירה?",
+      headingLine1: "מוכן לעלות",
+      headingLine2: "לזירה?",
       body: "התחל את הקורס הראשון שלך היום. לא נדרש חדר כושר.",
       button: "ראה את כל הקורסים",
     },
