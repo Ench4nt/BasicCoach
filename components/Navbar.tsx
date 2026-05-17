@@ -54,9 +54,9 @@ export default function Navbar() {
           </div>
 
           {/* Divider */}
-          <div className="w-px h-5 bg-zinc-800" aria-hidden />
+          <div className="w-px h-5 bg-zinc-800 hidden sm:block" aria-hidden />
 
-          <div className="flex items-center gap-1">
+          <div className="hidden sm:flex items-center gap-1">
             <Link
               href="/courses"
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400 ${
@@ -124,7 +124,7 @@ export default function Navbar() {
                 <>
                   <Link
                     href="/login"
-                    className="px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400"
+                    className="hidden sm:inline-flex px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400"
                   >
                     {t.nav.signIn}
                   </Link>

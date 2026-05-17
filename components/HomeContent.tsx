@@ -34,7 +34,7 @@ export default function HomeContent() {
           aria-hidden
         />
 
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-24">
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-16 md:py-24">
           <div className="max-w-[560px]">
 
             <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full border border-red-500/30 bg-red-500/8">
@@ -44,7 +44,7 @@ export default function HomeContent() {
               </span>
             </div>
 
-            <h1 className="text-[4rem] md:text-[5.5rem] font-black leading-[0.95] tracking-tight mb-6">
+            <h1 className="text-[2.5rem] sm:text-[3.5rem] md:text-[5.5rem] font-black leading-[0.95] tracking-tight mb-6">
               {t.hero.line1}<br />
               {t.hero.line2}<br />
               <span className="text-red-500">{t.hero.line3}</span>
@@ -94,7 +94,7 @@ export default function HomeContent() {
 
         {/* Boxer image */}
         <div
-          className="absolute right-0 top-0 h-full w-[52%] pointer-events-none select-none flex items-end"
+          className="absolute right-0 top-0 h-full w-[52%] pointer-events-none select-none hidden md:flex items-end"
           aria-hidden
         >
           <Image
@@ -123,7 +123,7 @@ export default function HomeContent() {
             </h2>
 
             {/* Level progression */}
-            <div className="flex items-center gap-2 flex-shrink-0">
+            <div className="flex items-center gap-2 flex-shrink-0 flex-wrap">
               {[
                 { label: "Beginner",     color: "text-emerald-400 border-emerald-500/30 bg-emerald-500/8" },
                 { label: "Intermediate", color: "text-amber-400 border-amber-500/30 bg-amber-500/8" },
@@ -195,7 +195,7 @@ export default function HomeContent() {
               <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-zinc-900 to-transparent md:hidden" />
             </div>
             <div className="relative flex-1 px-8 pb-12 md:py-14 md:pr-12 text-center md:text-left">
-              <div className="flex items-center gap-3 mb-3">
+              <div className="flex items-center gap-3 mb-3 justify-center md:justify-start">
                 <span className="text-red-500 text-sm font-semibold uppercase tracking-widest">
                   {t.coach.eyebrow}
                 </span>
@@ -238,7 +238,7 @@ export default function HomeContent() {
       {/* ── CTA Banner ───────────────────────────────────────── */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="relative rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800" style={{ minHeight: "520px" }}>
+          <div className="relative rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800" style={{ minHeight: "420px" }}>
 
             {/* Red glow */}
             <div
@@ -270,7 +270,7 @@ export default function HomeContent() {
             </div>
 
             {/* Button — bottom center, on top of image lower half */}
-            <div className="absolute bottom-32 left-0 right-0 flex justify-center z-10">
+            <div className="absolute bottom-10 sm:bottom-16 md:bottom-32 left-0 right-0 flex justify-center z-10">
               <Link
                 href="/courses"
                 className="inline-flex items-center justify-center h-13 px-10 py-3.5 bg-red-600 hover:bg-red-700 active:bg-red-800 text-white font-bold text-base rounded-xl transition-colors duration-150 shadow-lg shadow-red-900/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500"
