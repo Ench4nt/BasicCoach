@@ -26,7 +26,7 @@ export default function HomeContent() {
     <main className="flex-1 bg-zinc-950 text-white">
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative min-h-[calc(100dvh-4rem)] flex items-center overflow-hidden">
+      <section className="relative md:min-h-[calc(100dvh-4rem)] flex flex-col md:flex-row md:items-center overflow-hidden">
 
         <div
           className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full pointer-events-none"
@@ -34,7 +34,7 @@ export default function HomeContent() {
           aria-hidden
         />
 
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-16 md:py-24">
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 pt-16 pb-0 md:py-24">
           <div className="max-w-[560px]">
 
             <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full border border-red-500/30 bg-red-500/8">
@@ -92,7 +92,23 @@ export default function HomeContent() {
           </div>
         </div>
 
-        {/* Boxer image */}
+        {/* Boxer image — mobile: in-flow below text */}
+        <div
+          className="relative w-full h-80 pointer-events-none select-none flex justify-center items-end overflow-hidden md:hidden"
+          aria-hidden
+        >
+          <Image
+            src="/hero-boxer-v2.png"
+            alt=""
+            width={900}
+            height={1152}
+            className="object-contain object-bottom h-full w-auto opacity-90 brightness-125"
+          />
+          <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-zinc-950 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-zinc-950 to-transparent" />
+        </div>
+
+        {/* Boxer image — desktop: absolute right side */}
         <div
           className="absolute right-0 top-0 h-full w-[52%] pointer-events-none select-none hidden md:flex items-end"
           aria-hidden
@@ -109,7 +125,7 @@ export default function HomeContent() {
           <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-zinc-950 to-transparent" />
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-zinc-950 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-zinc-950 to-transparent pointer-events-none md:block hidden" />
       </section>
 
       {/* ── Features ─────────────────────────────────────────── */}
