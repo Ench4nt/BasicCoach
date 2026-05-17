@@ -26,7 +26,7 @@ export default function HomeContent() {
     <main className="flex-1 bg-zinc-950 text-white">
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative md:min-h-[calc(100dvh-4rem)] flex flex-col md:flex-row md:items-center overflow-hidden">
+      <section className="relative min-h-[calc(100dvh-4rem)] flex items-center overflow-hidden">
 
         <div
           className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full pointer-events-none"
@@ -34,7 +34,7 @@ export default function HomeContent() {
           aria-hidden
         />
 
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 pt-16 pb-0 md:py-24">
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-16 md:py-24">
           <div className="max-w-[560px]">
 
             <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full border border-red-500/30 bg-red-500/8">
@@ -92,9 +92,9 @@ export default function HomeContent() {
           </div>
         </div>
 
-        {/* Boxer image — mobile: in-flow below text */}
+        {/* Boxer image — all screens, blended behind text */}
         <div
-          className="relative w-full h-80 pointer-events-none select-none flex justify-center items-end overflow-hidden md:hidden"
+          className="absolute right-0 top-0 h-full w-full md:w-[52%] pointer-events-none select-none flex items-end justify-end"
           aria-hidden
         >
           <Image
@@ -102,30 +102,17 @@ export default function HomeContent() {
             alt=""
             width={900}
             height={1152}
-            className="object-contain object-bottom h-full w-auto opacity-90 brightness-125"
-          />
-          <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-zinc-950 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-zinc-950 to-transparent" />
-        </div>
-
-        {/* Boxer image — desktop: absolute right side */}
-        <div
-          className="absolute right-0 top-0 h-full w-[52%] pointer-events-none select-none hidden md:flex items-end"
-          aria-hidden
-        >
-          <Image
-            src="/hero-boxer-v2.png"
-            alt=""
-            width={900}
-            height={1152}
-            className="object-contain object-bottom h-[95%] w-auto opacity-90 brightness-125"
+            className="object-contain object-bottom h-[95%] w-auto opacity-80 brightness-125 -translate-y-[30%] md:translate-y-0"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/40 to-transparent" />
+          {/* Mobile: strong left-to-right fade so text stays readable */}
+          <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/75 to-transparent md:hidden" />
+          {/* Desktop: lighter fade */}
+          <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/40 to-transparent hidden md:block" />
           <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-zinc-950 to-transparent" />
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-zinc-950 to-transparent pointer-events-none md:block hidden" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-zinc-950 to-transparent pointer-events-none" />
       </section>
 
       {/* ── Features ─────────────────────────────────────────── */}
