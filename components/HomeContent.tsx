@@ -116,11 +116,11 @@ export default function HomeContent() {
       </section>
 
       {/* ── Features ─────────────────────────────────────────── */}
-      <section className="border-t border-zinc-800/60 py-24" aria-label="Platform features">
+      <section className="border-t border-zinc-800/60 py-8 md:py-24" aria-label="Platform features">
         <div className="max-w-6xl mx-auto px-6">
 
           {/* Header row */}
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-6 md:mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
               {t.features.heading}
             </h2>
@@ -183,7 +183,7 @@ export default function HomeContent() {
       </section>
 
       {/* ── Meet Your Coach ──────────────────────────────────── */}
-      <section className="py-20 border-t border-zinc-800/60" aria-label="Meet your coach">
+      <section className="py-6 md:py-20 border-t border-zinc-800/60" aria-label="Meet your coach">
         <div className="max-w-6xl mx-auto px-6">
           <div className="relative rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800 flex flex-col md:flex-row items-center gap-0">
             <div className="relative w-full md:w-[420px] flex-shrink-0 flex items-end justify-center h-[420px] md:h-[500px]">
@@ -239,7 +239,7 @@ export default function HomeContent() {
       </section>
 
       {/* ── CTA Banner ───────────────────────────────────────── */}
-      <section className="py-20">
+      <section className="py-6 md:py-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="relative rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800" style={{ minHeight: "420px" }}>
 
